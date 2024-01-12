@@ -8,16 +8,24 @@
     <title>Title</title>
 </head>
 <body>
-<table>
+<!--<form action="/student/search" method="get">-->
+<!--    <input type="text" name="name" placeholder="Tìm kiếm">-->
+<!--    <button>Search</button>-->
+<!--</form>-->
+<a href="http://localhost:8080/student/add">Add</a>
+<table style="border: 1px solid">
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Age</th>
+        <th colspan="2">Option</th>
     </tr>
     <tr th:each="item: ${list}">
         <td th:text="${item.id}"></td>
         <td th:text="${item.name}"></td>
         <td th:text="${item.age}"></td>
+        <td><a th:href="@{/student/edit/{id}(id=${item.id})}">Edit</a></td>
+        <td><a th:href="@{/student/delete/{id}(id=${item.id})}">Delete</a></td>
     </tr>
 </table>
 </body>

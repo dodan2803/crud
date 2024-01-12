@@ -1,23 +1,30 @@
 package com.dan.demo_crud.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "student")
 public class Student {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable = false)
     private String name;
     private int age;
 
     public Student() {}
 
-    public Student(int id, String name, int age) {
+    public Student(Long id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

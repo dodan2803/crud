@@ -8,10 +8,11 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/student/add" th:object="${student}" method="post">
+<form action="/student/edit" th:object="${student}" method="post">
+    <input type="text" th:field="*{id}" placeholder="Id" readonly>
     <input type="text" th:field="*{name}" placeholder="Name">
     <input type="text" th:field="*{age}" placeholder="Age">
-    <button>Add</button>
+    <button>Edit</button>
 </form>
 </body>
 </html>
