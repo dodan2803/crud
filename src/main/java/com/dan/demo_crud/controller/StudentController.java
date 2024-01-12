@@ -4,6 +4,8 @@ import com.dan.demo_crud.model.Student;
 import com.dan.demo_crud.service.IManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,7 +33,7 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public String add(@ModelAttribute Student student) {
+    public String add(@Validated @ModelAttribute Student student, BindingResult bindingResult) {
         studentService.save(student);
         return "redirect:/student/home";
     }
